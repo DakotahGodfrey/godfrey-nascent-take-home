@@ -4,6 +4,7 @@ import User from "pages/User";
 import Pokedex from "pages/Pokedex";
 import Confirm from "pages/Confirm";
 import ProgressIndicator from "components/ProgessIndicator";
+
 function App() {
   return (
     <div className='app'>
