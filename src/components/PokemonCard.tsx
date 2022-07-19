@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Pokemon } from "types";
 
 const PokemonCardContainer = styled.div`
   display: grid;
@@ -6,27 +7,20 @@ const PokemonCardContainer = styled.div`
 `;
 
 interface IPokemonCardProps {
-  name: string;
-  pokedexNumber: string;
-  info: string;
-  imgURL: string;
+  pokemon: Pokemon;
 }
 
 const PokemonCard: React.FC<IPokemonCardProps> = ({
-  name,
-  pokedexNumber,
-  info,
-  imgURL,
+  pokemon: { name, id, sprites },
 }) => {
   return (
     <PokemonCardContainer>
-      <img src={imgURL} alt='' />
+      <img src={sprites.other["official-artwork"].front_default} alt='' />
       <div>
         <h2>
-          <span>#:{pokedexNumber}</span> <span>Name: {name}</span>
+          <span>#:{id}</span> <span>Name: {name}</span>
         </h2>
         <p>Bio</p>
-        <p>{info}</p>
       </div>
     </PokemonCardContainer>
   );
