@@ -49,7 +49,7 @@ export type Pokemon = {
   weight: number;
 };
 
-export type PokemonTypes = [
+const pokemonTypes = [
   "normal",
   "fighting",
   "flying",
@@ -68,5 +68,7 @@ export type PokemonTypes = [
   "dragon",
   "dark",
   "unknown",
-  "shadow"
-];
+  "shadow",
+] as const;
+
+export type PokemonTypes = typeof pokemonTypes[number];

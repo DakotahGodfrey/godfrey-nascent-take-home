@@ -24,7 +24,7 @@ const Pokedex: React.FC = () => {
     <Container>
       <h1>Who's your favourite Pokémon?</h1>
       {/* Selected Pokémon */}
-      <PokemonCard pokemon={result} />
+      {result ? <PokemonCard pokemon={result} /> : null}
       {/* Search Input */}
       <form onSubmit={(e) => e.preventDefault()}>
         <label htmlFor='search'>Search</label>
