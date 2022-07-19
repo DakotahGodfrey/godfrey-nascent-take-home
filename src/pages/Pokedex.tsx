@@ -17,7 +17,6 @@ const Pokedex: React.FC = () => {
     };
     if (query) {
       getPokemonByName(query);
-      console.log(result);
     }
   }, [query]);
 
