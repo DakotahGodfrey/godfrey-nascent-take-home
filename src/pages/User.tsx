@@ -4,7 +4,7 @@ import Container from "components/Container";
 
 const UserForm = styled.form``;
 const ControlGroup = styled.div``;
-const User: React.FC = () => {
+const UserPage: React.FC = () => {
   return (
     <main>
       <Container>
@@ -74,4 +74,4 @@ const User: React.FC = () => {
   );
 };
 
-export default User;
+export default UserPage;

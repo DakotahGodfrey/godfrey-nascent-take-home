@@ -1,17 +1,18 @@
 import "styles/reset.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import User from "pages/User";
+import UserPage from "pages/User";
 import Pokedex from "pages/Pokedex";
+import { createContext } from "react";
 import Confirm from "pages/Confirm";
 import ProgressIndicator from "components/ProgessIndicator";
 
 function App() {
   return (
     <div className='app'>
+      <ProgressIndicator path='' />
       <BrowserRouter>
-        <ProgressIndicator path='' />
         <Routes>
-          <Route path={"/"} element={<User />}></Route>
+          <Route path={"/"} element={<UserPage />}></Route>
           <Route path={"/pokedex"} element={<Pokedex />}></Route>
           <Route path={"/confirm"} element={<Confirm />}></Route>
         </Routes>
