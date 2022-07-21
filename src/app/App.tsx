@@ -2,7 +2,6 @@ import "styles/reset.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserPage from "pages/User";
 import Pokedex from "pages/Pokedex";
-import { createContext } from "react";
 import Confirm from "pages/Confirm";
 import ProgressIndicator from "components/ProgessIndicator";
 
