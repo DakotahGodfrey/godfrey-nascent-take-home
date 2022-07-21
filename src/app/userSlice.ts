@@ -9,6 +9,7 @@ const initialState: User = {
   phone: "",
   address: "",
   email: "",
+  pokemon: "",
 };
 
 export const userSlice = createSlice({
@@ -29,6 +30,9 @@ export const userSlice = createSlice({
     },
     updateEmail: (state, action: PayloadAction<string>) => {
       state.email = action.payload;
+    },
+    updatePokemon: (state, action: PayloadAction<string>) => {
+      state.pokemon = action.payload;
     },
     clearUser: (state) => {
       state.firstName = "";
