@@ -1,10 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import Container from "components/Container";
+import {
+  updateFirstName,
+  updateLastName,
+  updatePhone,
+  updateAddress,
+  updateEmail,
+  selectUser,
+} from "app/userSlice";
+import { useAppDispatch, useAppSelector } from "app/hooks";
 
 const UserForm = styled.form``;
+
 const ControlGroup = styled.div``;
+
 const UserPage: React.FC = () => {
+  const { firstName, lastName, phone, address, email } =
+    useAppSelector(selectUser);
   return (
     <main>
       <Container>
@@ -16,7 +29,7 @@ const UserPage: React.FC = () => {
               type='text'
               name='first_name'
               placeholder='first name'
-              value={""}
+              value={firstName}
               id='firstName'
             />
           </ControlGroup>
@@ -26,7 +39,7 @@ const UserPage: React.FC = () => {
               type='text'
               name='last_name'
               placeholder='last name'
-              value={""}
+              value={lastName}
               id='lastName'
             />
           </ControlGroup>
@@ -36,7 +49,7 @@ const UserPage: React.FC = () => {
               type='tel'
               name='phone'
               placeholder='phone number'
-              value={""}
+              value={phone}
               id='phoneNumber'
             />
           </ControlGroup>
@@ -46,7 +59,7 @@ const UserPage: React.FC = () => {
               type='text'
               name='address'
               placeholder='address'
-              value={""}
+              value={address}
               id='address'
             />
           </ControlGroup>
@@ -56,7 +69,7 @@ const UserPage: React.FC = () => {
               type='email'
               name='email'
               placeholder='e-mail address'
-              value={""}
+              value={email}
               id='email'
             />
           </ControlGroup>

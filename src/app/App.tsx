@@ -1,6 +1,6 @@
 import "styles/reset.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import UserPage from "pages/User";
+import UserPage from "pages/UserPage";
 import Pokedex from "pages/Pokedex";
 import Confirm from "pages/Confirm";
 import ProgressIndicator from "components/ProgessIndicator";
