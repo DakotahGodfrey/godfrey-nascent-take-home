@@ -8,6 +8,7 @@ import {
   updateAddress,
   updateEmail,
   selectUser,
+  clearUser,
 } from "app/userSlice";
 import { useAppDispatch, useAppSelector } from "app/hooks";
 
@@ -18,6 +19,13 @@ const ControlGroup = styled.div``;
 const UserPage: React.FC = () => {
   const { firstName, lastName, phone, address, email } =
     useAppSelector(selectUser);
+  const dispatch = useAppDispatch();
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    action: any
+  ) => {
+    dispatch(action(e.currentTarget.value));
+  };
   return (
     <main>
       <Container>
@@ -31,6 +39,7 @@ const UserPage: React.FC = () => {
               placeholder='first name'
               value={firstName}
               id='firstName'
+              onChange={(e) => handleInputChange(e, updateFirstName)}
             />
           </ControlGroup>
           <ControlGroup>
@@ -41,6 +50,7 @@ const UserPage: React.FC = () => {
               placeholder='last name'
               value={lastName}
               id='lastName'
+              onChange={(e) => handleInputChange(e, updateLastName)}
             />
           </ControlGroup>
           <ControlGroup>
@@ -51,6 +61,7 @@ const UserPage: React.FC = () => {
               placeholder='phone number'
               value={phone}
               id='phoneNumber'
+              onChange={(e) => handleInputChange(e, updatePhone)}
             />
           </ControlGroup>
           <ControlGroup>
@@ -61,6 +72,7 @@ const UserPage: React.FC = () => {
               placeholder='address'
               value={address}
               id='address'
+              onChange={(e) => handleInputChange(e, updateAddress)}
             />
           </ControlGroup>
           <ControlGroup>
@@ -71,10 +83,13 @@ const UserPage: React.FC = () => {
               placeholder='e-mail address'
               value={email}
               id='email'
+              onChange={(e) => handleInputChange(e, updateEmail)}
             />
           </ControlGroup>
           <div>
-            <button type='reset'>Clear</button>
+            <button type='reset' onClick={() => dispatch(clearUser())}>
+              Clear
+            </button>
             <button type='submit'>Next</button>
           </div>
         </UserForm>

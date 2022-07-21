@@ -30,6 +30,13 @@ export const userSlice = createSlice({
     updateEmail: (state, action: PayloadAction<string>) => {
       state.email = action.payload;
     },
+    clearUser: (state) => {
+      state.firstName = "";
+      state.lastName = "";
+      state.address = "";
+      state.phone = "";
+      state.email = "";
+    },
   },
 });
 
@@ -39,6 +46,7 @@ export const {
   updatePhone,
   updateAddress,
   updateEmail,
+  clearUser,
 } = userSlice.actions;
 export const selectUser = (state: RootState) => state.user;
 export default userSlice.reducer;
