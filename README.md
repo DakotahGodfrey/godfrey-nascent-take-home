@@ -36,6 +36,7 @@ The wireframes and components used for this project can be viewed [here on Figma
 - Add stronger type annotations for better type safety. 
 - Provide better support for screenreaders. 
 - Add animations. 
+- Write custom hooks to debounce api calls, and for media queries as I've done in previous projects (eg. [Reddit-Client](https://github.com/DakotahGodfrey/react-reddit-client), and [AIC-Gallery-Project](https://github.com/DakotahGodfrey/aic-project)).
 
 ## Technology Used
 
