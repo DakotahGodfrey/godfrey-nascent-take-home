@@ -1,20 +1,16 @@
 import { DefaultTheme } from "styled-components";
 
-export const lightTheme: DefaultTheme = {
-  primary: "",
-  secondary: "",
-  accent: "",
-  muted: "",
-  success: "",
-  alert: "",
-  BG: "",
+export const theme: DefaultTheme = {
+  primary: "#333",
+  secondary: "#fff",
+  accent: "#1e90ff",
+  muted: "#d9d9d9",
+  success: "#7bed9f",
+  alert: "#ff4757",
+  BG: "#ffa502",
   link: "",
-  body: "",
-  headingLG: "",
-  headingMD: "",
-  headingSM: "",
-};
-
-export const darkTheme: DefaultTheme = {
-  ...lightTheme,
+  body: "16px",
+  headingSM: "18px",
+  headingMD: "24px",
+  headingLG: "32px",
 };

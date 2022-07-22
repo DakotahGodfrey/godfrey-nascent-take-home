@@ -3,12 +3,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserPage from "pages/UserPage";
 import Pokedex from "pages/Pokedex";
 import Confirm from "pages/Confirm";
-import ProgressIndicator from "components/ProgessIndicator";
 
 function App() {
   return (
     <div className='app'>
-      <ProgressIndicator path='' />
       <BrowserRouter>
         <Routes>
           <Route path={"/"} element={<UserPage />}></Route>

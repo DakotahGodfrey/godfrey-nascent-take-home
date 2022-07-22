@@ -5,6 +5,8 @@ import { Pokemon } from "types";
 import { POKEMON_API } from "utils/endpoints";
 import { selectUser, updatePokemon, clearPokemon } from "app/userSlice";
 import { useAppDispatch, useAppSelector } from "app/hooks";
+import ProgressIndicator from "components/ProgessIndicator";
+import { Link } from "react-router-dom";
 
 const Pokedex: React.FC = () => {
   const [query, setQuery] = useState<string>("");
@@ -15,7 +17,7 @@ const Pokedex: React.FC = () => {
 
   useEffect(() => {
     const getPokemonByName = async (name: string) => {
-      const response = await fetch(POKEMON_API + name);
+      const response = await fetch(POKEMON_API + name.toLowerCase());
       const data = await response.json();
       if (data !== "Not Found") {
         setResult(data);
@@ -39,26 +41,43 @@ const Pokedex: React.FC = () => {
   };
 
   return (
-    <Container>
-      <h1>Who's your favourite Pokémon?</h1>
-      {chosenOne && (
-        <PokemonCard isChosen setFreeClick={setFreeClick} pokemon={chosenOne} />
-      )}
-      <form onSubmit={(e) => e.preventDefault()}>
-        <label htmlFor='search'>Search</label>
-        <input
-          type='search'
-          name='search'
-          id='search'
-          onChange={(e) => setQuery(e.target.value)}
-          required
-          value={query}
-        />
-      </form>
-      {result && (
-        <PokemonCard handleChooseClick={handleChooseClick} pokemon={result} />
-      )}
-    </Container>
+    <>
+      <ProgressIndicator step={2} />
+      <main>
+        <Container>
+          <h1>Who's your favourite Pokémon?</h1>
+          <h2>My Fave:</h2>
+          {chosenOne && (
+            <PokemonCard
+              isChosen
+              setFreeClick={setFreeClick}
+              pokemon={chosenOne}
+            />
+          )}
+          <form onSubmit={(e) => e.preventDefault()}>
+            <div className='control-group'>
+              <label htmlFor='search'>Search</label>
+              <input
+                type='search'
+                name='search'
+                id='search'
+                onChange={(e) => setQuery(e.target.value)}
+                required
+                placeholder='try "squirtle"'
+                value={query}
+              />
+            </div>
+          </form>
+          <h3>Results:</h3>
+          {result && (
+            <PokemonCard
+              handleChooseClick={handleChooseClick}
+              pokemon={result}
+            />
+          )}
+        </Container>
+      </main>
+    </>
   );
 };
 
