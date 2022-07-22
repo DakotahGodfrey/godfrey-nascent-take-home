@@ -1,14 +1,13 @@
 import Container from "components/Container";
 import React from "react";
-import { useAppDispatch, useAppSelector } from "app/hooks";
-import { selectUser, clearPokemon } from "app/userSlice";
+import { useAppSelector } from "app/hooks";
+import { selectUser } from "app/userSlice";
 import PokemonCard from "components/PokemonCard";
 import UserForm from "components/UserForm";
 import ProgressIndicator from "components/ProgessIndicator";
 
 const Confirm: React.FC = () => {
   const { pokemon } = useAppSelector(selectUser);
-  const dispatch = useAppDispatch();
   return (
     <>
       <ProgressIndicator step={3} />

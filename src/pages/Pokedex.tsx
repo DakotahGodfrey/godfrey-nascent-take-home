@@ -2,11 +2,10 @@ import Container from "components/Container";
 import PokemonCard from "components/PokemonCard";
 import React, { useState, useEffect } from "react";
 import { Pokemon } from "types";
-import { POKEMON_API } from "utils/endpoints";
+import { POKEMON_API } from "endpoints";
 import { selectUser, updatePokemon, clearPokemon } from "app/userSlice";
 import { useAppDispatch, useAppSelector } from "app/hooks";
 import ProgressIndicator from "components/ProgessIndicator";
-import { Link } from "react-router-dom";
 
 const Pokedex: React.FC = () => {
   const [query, setQuery] = useState<string>("");
