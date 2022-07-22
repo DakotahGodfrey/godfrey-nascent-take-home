@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path={"/"} element={<UserPage />}></Route>
-          <Route path={"/pokedex"} element={<Pokedex />}></Route>
+          <Route path={"/pokemon"} element={<Pokedex />}></Route>
           <Route path={"/confirm"} element={<Confirm />}></Route>
         </Routes>
       </BrowserRouter>

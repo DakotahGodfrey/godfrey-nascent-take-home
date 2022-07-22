@@ -4,7 +4,7 @@ export type User = {
   phone: string;
   address?: string;
   email?: string;
-  pokemon: string;
+  pokemon: Pokemon | null;
 };
 export type Pokemon = {
   abilities: {}[];

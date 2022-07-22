@@ -6,21 +6,37 @@ const PokemonCardContainer = styled.div`
   grid-template-columns: 1fr 1fr;
 `;
 
-interface IPokemonCardProps {
+export interface IPokemonCardProps {
   pokemon: Pokemon;
+  isChosen?: boolean;
+  handleChooseClick?: (pokemon: Pokemon) => void;
+  setFreeClick?: () => void;
 }
 
 const PokemonCard: React.FC<IPokemonCardProps> = ({
-  pokemon: { name, id, sprites },
+  pokemon,
+  isChosen,
+  handleChooseClick,
+  setFreeClick,
 }) => {
   return (
     <PokemonCardContainer>
-      <img src={sprites.other["official-artwork"].front_default} alt='' />
+      <img
+        src={pokemon.sprites.other["official-artwork"].front_default}
+        alt=''
+      />
       <div>
         <h2>
-          <span>#:{id}</span> <span>Name: {name}</span>
+          <span>#:{pokemon.id}</span> <span>Name: {pokemon.name}</span>
         </h2>
         <p>Bio</p>
+        {!isChosen && handleChooseClick ? (
+          <button onClick={() => handleChooseClick(pokemon)}>
+            I Choose You
+          </button>
+        ) : isChosen && setFreeClick ? (
+          <button onClick={() => setFreeClick()}>Set Free</button>
+        ) : null}
       </div>
     </PokemonCardContainer>
   );

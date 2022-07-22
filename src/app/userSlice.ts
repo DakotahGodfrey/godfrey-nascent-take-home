@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "./store";
-import { User } from "types";
+import { Pokemon, User } from "types";
 
 const initialState: User = {
   firstName: "",
@@ -9,7 +9,7 @@ const initialState: User = {
   phone: "",
   address: "",
   email: "",
-  pokemon: "",
+  pokemon: null,
 };
 
 export const userSlice = createSlice({
@@ -31,8 +31,11 @@ export const userSlice = createSlice({
     updateEmail: (state, action: PayloadAction<string>) => {
       state.email = action.payload;
     },
-    updatePokemon: (state, action: PayloadAction<string>) => {
+    updatePokemon: (state, action: PayloadAction<Pokemon>) => {
       state.pokemon = action.payload;
+    },
+    clearPokemon: (state) => {
+      state.pokemon = null;
     },
     clearUser: (state) => {
       state.firstName = "";
@@ -40,6 +43,14 @@ export const userSlice = createSlice({
       state.address = "";
       state.phone = "";
       state.email = "";
+    },
+    clearAll: (state) => {
+      state.firstName = "";
+      state.lastName = "";
+      state.address = "";
+      state.phone = "";
+      state.email = "";
+      state.pokemon = null;
     },
   },
 });
@@ -50,7 +61,10 @@ export const {
   updatePhone,
   updateAddress,
   updateEmail,
+  updatePokemon,
   clearUser,
+  clearPokemon,
+  clearAll,
 } = userSlice.actions;
 export const selectUser = (state: RootState) => state.user;
 export default userSlice.reducer;
